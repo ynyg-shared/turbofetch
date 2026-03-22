@@ -1,0 +1,10 @@
+[package]
+name = "turbofetch"
+version = "0.1.0"
+edition = "2024"
+description = "一个高性能的并发文件下载器，支持跨平台、断点续传和高速下载"
+authors = ["屿你有关 <978814197@qq.com>"]
+repository = "https://github.com/ynyg-shared/turbofetch.git"
+license = "MIT"
+
+[dependencies]
