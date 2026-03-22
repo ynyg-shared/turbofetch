@@ -123,10 +123,15 @@ pub enum DownloadError {
 
 ### Async Code
 
-- Use `tokio` as the async runtime
-- Prefer `async fn` over returning `impl Future`
-- Use `Arc` + `Semaphore` for concurrency control
-- Always set timeouts on network requests
+本项目使用 **tokio 协程** 实现并发，所有网络和 IO 操作必须基于 `async/await`。
+
+- 使用 `tokio` 作为异步运行时
+- 优先使用 `async fn` 而非返回 `impl Future`
+- 使用 `Arc` + `Semaphore` 控制并发数
+- 网络请求必须设置超时
+- 使用 `tokio::spawn` 启动协程任务
+- 使用 `tokio::fs` 进行异步文件操作
+- 避免在异步上下文中使用阻塞调用（如 `std::fs`、`std::thread::sleep`）
 
 ### Formatting
 
